@@ -114,10 +114,6 @@ name = "arrays"
 version = "0.1.0"
 
 [[package]]
-name = "as_cast"
-version = "0.1.0"
-
-[[package]]
 name = "assoc_vs_generic"
 version = "0.1.0"
 
@@ -554,10 +550,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "factorial"
-version = "0.1.0"
-
-[[package]]
 name = "fallibility"
 version = "0.1.0"
 dependencies = [
@@ -587,10 +579,6 @@ name = "fnv"
 version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1"
-
-[[package]]
-name = "for_"
-version = "0.1.0"
 
 [[package]]
 name = "form_urlencoded"
@@ -943,10 +931,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "if_else"
-version = "0.1.0"
-
-[[package]]
 name = "if_let"
 version = "0.1.0"
 
@@ -1025,15 +1009,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "integers"
-version = "0.1.0"
-
-[[package]]
 name = "interior_mutability"
-version = "0.1.0"
-
-[[package]]
-name = "intro_01"
 version = "0.1.0"
 
 [[package]]
@@ -1448,10 +1424,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "overflow"
-version = "0.1.0"
-
-[[package]]
 name = "overloading"
 version = "0.1.0"
 
@@ -1461,10 +1433,6 @@ version = "0.1.0"
 
 [[package]]
 name = "packages"
-version = "0.1.0"
-
-[[package]]
-name = "panics"
 version = "0.1.0"
 
 [[package]]
@@ -1872,10 +1840,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "saturating"
-version = "0.1.0"
-
-[[package]]
 name = "scoped-tls"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2110,10 +2074,6 @@ dependencies = [
 
 [[package]]
 name = "sync"
-version = "0.1.0"
-
-[[package]]
-name = "syntax"
 version = "0.1.0"
 
 [[package]]
@@ -2429,10 +2389,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "variables"
-version = "0.1.0"
-
-[[package]]
 name = "variants_with_data"
 version = "0.1.0"
 dependencies = [
@@ -2559,14 +2515,6 @@ name = "wasm-bindgen-shared"
 version = "0.2.92"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "af190c94f2773fdb3729c55b007a722abb5384da03bc0986df4c289bf5567e96"
-
-[[package]]
-name = "welcome_00"
-version = "0.1.0"
-
-[[package]]
-name = "while_"
-version = "0.1.0"
 
 [[package]]
 name = "winapi"
