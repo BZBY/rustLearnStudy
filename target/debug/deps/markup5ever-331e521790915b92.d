@@ -1,0 +1,15 @@
+E:\rust_project\rustLearnStudy\target\debug\deps\libmarkup5ever-331e521790915b92.rmeta: C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\lib.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\data\mod.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\interface\mod.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\interface\tree_builder.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\serialize.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\util\buffer_queue.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\util\smallcharset.rs E:\rust_project\rustLearnStudy\target\debug\build\markup5ever-41808f55e2576b3c\out/generated.rs E:\rust_project\rustLearnStudy\target\debug\build\markup5ever-41808f55e2576b3c\out/named_entities.rs
+
+E:\rust_project\rustLearnStudy\target\debug\deps\markup5ever-331e521790915b92.d: C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\lib.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\data\mod.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\interface\mod.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\interface\tree_builder.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\serialize.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\util\buffer_queue.rs C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\util\smallcharset.rs E:\rust_project\rustLearnStudy\target\debug\build\markup5ever-41808f55e2576b3c\out/generated.rs E:\rust_project\rustLearnStudy\target\debug\build\markup5ever-41808f55e2576b3c\out/named_entities.rs
+
+C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\lib.rs:
+C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\data\mod.rs:
+C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\interface\mod.rs:
+C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\interface\tree_builder.rs:
+C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\serialize.rs:
+C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\util\buffer_queue.rs:
+C:\Users\b_z_b\.cargo\registry\src\index.crates.io-6f17d22bba15001f\markup5ever-0.12.1\util\smallcharset.rs:
+E:\rust_project\rustLearnStudy\target\debug\build\markup5ever-41808f55e2576b3c\out/generated.rs:
+E:\rust_project\rustLearnStudy\target\debug\build\markup5ever-41808f55e2576b3c\out/named_entities.rs:
+
+# env-dep:OUT_DIR=E:\\rust_project\\rustLearnStudy\\target\\debug\\build\\markup5ever-41808f55e2576b3c\\out
