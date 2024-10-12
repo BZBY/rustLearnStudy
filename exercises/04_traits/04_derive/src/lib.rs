@@ -8,12 +8,14 @@
 // print both sides of the comparison to the terminal.
 // If the compared type doesn't implement `Debug`, it doesn't know how to represent them!
 
-#[derive(PartialEq)]
+#[derive(Debug, PartialEq)] // 添加 Debug 和 PartialEq 派生
 struct Ticket {
     title: String,
     description: String,
     status: String,
 }
+
+
 
 #[cfg(test)]
 mod tests {
