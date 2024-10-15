@@ -1,4 +1,5 @@
 use crate::status::Status;
+use crate::TicketNewError::InvalidStatus;
 
 // We've seen how to declare modules in one of the earliest exercises, but
 // we haven't seen how to extract them into separate files.
@@ -7,11 +8,14 @@ use crate::status::Status;
 // In the simplest case, when the extracted module is a single file, it is enough to
 // create a new file with the same name as the module and move the module content there.
 // The module file should be placed in the same directory as the file that declares the module.
-// In this case, `src/lib.rs`, thus `status.rs` should be placed in the `src` directory.
+// In this case, `src/packages`, thus `status.rs` should be placed in the `src` directory.
 mod status;
 
 // TODO: Add a new error variant to `TicketNewError` for when the status string is invalid.
 //   When calling `source` on an error of that variant, it should return a `ParseStatusError` rather than `None`.
+#[derive(Debug, thiserror::Error)]
+#[error("`{0}` is not a valid status. Use one of: ToDo, InProgress, Done")]
+pub struct ParseStatusError(String);
 
 #[derive(Debug, thiserror::Error)]
 pub enum TicketNewError {
@@ -23,6 +27,11 @@ pub enum TicketNewError {
     DescriptionCannotBeEmpty,
     #[error("Description cannot be longer than 500 bytes")]
     DescriptionTooLong,
+    #[error("{0}` is not a valid status. Use one of: ToDo, InProgress, Done")]
+    InvalidStatus{
+        #[from]
+        source: ParseStatusError,
+    },
 }
 
 #[derive(Debug, PartialEq, Clone)]
@@ -48,11 +57,13 @@ impl Ticket {
         }
 
         // TODO: Parse the status string into a `Status` enum.
-
+        let statuss = Status::try_from(status).map_err(|e| TicketNewError::InvalidStatus {
+            source:ParseStatusError(e.to_string()),
+        })?;
         Ok(Ticket {
             title,
             description,
-            status,
+            status:statuss,
         })
     }
 }

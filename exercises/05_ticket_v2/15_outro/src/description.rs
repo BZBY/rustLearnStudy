@@ -2,8 +2,44 @@
 //   enforcing that the description is not empty and is not longer than 500 bytes.
 //   Implement the traits required to make the tests pass too.
 
+use std::fmt::Debug;
+
+#[derive(Clone, PartialEq)]
 pub struct TicketDescription(String);
 
+impl TryFrom<&str> for TicketDescription {
+    type Error = String;
+
+    fn try_from(value: &str) -> Result<Self, Self::Error> {
+        if value.is_empty() {
+            Err("The description cannot be empty".to_string())
+        } else if value.len() > 500 {
+            Err("The description cannot be longer than 500 characters".to_string())
+        } else {
+            Ok(TicketDescription(value.to_string()))
+        }
+    }
+}
+
+impl TryFrom<String> for TicketDescription {
+    type Error = String;
+
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        if value.is_empty() {
+            Err("The description cannot be empty".to_string())
+        } else if value.len() > 500 {
+            Err("The description cannot be longer than 500 bytes".to_string())
+        } else {
+            Ok(TicketDescription(value))
+        }
+    }
+}
+
+impl Debug for TicketDescription {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.0)
+    }
+}
 #[cfg(test)]
 mod tests {
     use super::*;

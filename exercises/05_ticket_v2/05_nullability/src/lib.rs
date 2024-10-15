@@ -1,11 +1,15 @@
 // TODO: Implement `Ticket::assigned_to` using `Option` as the return type.
 
+use crate::Status::InProgress;
+
 #[derive(Debug, PartialEq)]
 struct Ticket {
     title: String,
     description: String,
     status: Status,
 }
+
+
 
 #[derive(Debug, PartialEq)]
 enum Status {
@@ -36,7 +40,12 @@ impl Ticket {
         }
     }
     pub fn assigned_to(&self) -> Option<&String> {
-        todo!()
+        match &self.status {  
+            Status::InProgress { assigned_to } => {
+                Some(assigned_to)
+            }
+            _ => None,
+        }
     }
 }
 
