@@ -1,3 +1,4 @@
+use std::sync::{mpsc, Arc};
 use crate::data::{Ticket, TicketDraft};
 use crate::store::{TicketId, TicketStore};
 use std::sync::mpsc::{Receiver, Sender};
@@ -7,23 +8,37 @@ pub mod store;
 
 #[derive(Clone)]
 // TODO: flesh out the client implementation.
-pub struct TicketStoreClient {}
+pub struct TicketStoreClient {
+    sender: Arc<Sender<Command>>,
+}
 
 impl TicketStoreClient {
     // Feel free to panic on all errors, for simplicity.
     pub fn insert(&self, draft: TicketDraft) -> TicketId {
-        todo!()
+        let (respose_tx, respose_rx) = mpsc::channel();
+        let command = Command::Insert {
+            draft,
+            response_channel: respose_tx
+        };
+        self.sender.send(command).unwrap();
+        respose_rx.recv().unwrap()
     }
 
     pub fn get(&self, id: TicketId) -> Option<Ticket> {
-        todo!()
+        let (respose_tx, respose_rx) = mpsc::channel();
+        let command = Command::Get {
+            id,
+            response_channel: respose_tx
+        };
+        self.sender.send(command).unwrap();
+        respose_rx.recv().unwrap()
     }
 }
 
 pub fn launch() -> TicketStoreClient {
     let (sender, receiver) = std::sync::mpsc::channel();
     std::thread::spawn(move || server(receiver));
-    todo!()
+    TicketStoreClient { sender : Arc::new(sender)}
 }
 
 // No longer public! This becomes an internal detail of the library now.

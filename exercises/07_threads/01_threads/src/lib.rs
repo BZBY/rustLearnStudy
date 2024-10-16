@@ -15,7 +15,33 @@
 use std::thread;
 
 pub fn sum(v: Vec<i32>) -> i32 {
-    todo!()
+    // 如果输入的 Vec 为空，直接返回 0
+    if v.is_empty() {
+        return 0;
+    }
+
+    // 获取向量长度的一半，作为切割点
+    let half_len = v.len() / 2;
+
+    // 为每个线程分配新的 Vec
+    let left_half = v[..half_len].to_vec(); // 左半部分
+    let right_half = v[half_len..].to_vec(); // 右半部分
+
+    // 创建第一个线程，计算左半部分的和
+    let handle1 = thread::spawn(move || {
+        left_half.iter().sum::<i32>()
+    });
+
+    // 创建第二个线程，计算右半部分的和
+    let handle2 = thread::spawn(move || {
+        right_half.iter().sum::<i32>()
+    });
+
+    // 等待两个线程完成，获取结果并求和
+    let left_sum = handle1.join().unwrap();
+    let right_sum = handle2.join().unwrap();
+
+    left_sum + right_sum
 }
 
 #[cfg(test)]

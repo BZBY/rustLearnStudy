@@ -7,10 +7,12 @@
 // and returns an `Option<&Ticket>`.
 
 use ticket_fields::{TicketDescription, TicketTitle};
+use ticket_fields::test_helpers::ticket_description;
 
 #[derive(Clone)]
 pub struct TicketStore {
     tickets: Vec<Ticket>,
+    next_id: u64,
 }
 
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -41,11 +43,25 @@ impl TicketStore {
     pub fn new() -> Self {
         Self {
             tickets: Vec::new(),
+            next_id: 0,
         }
     }
 
-    pub fn add_ticket(&mut self, ticket: Ticket) {
-        self.tickets.push(ticket);
+    pub fn add_ticket(&mut self, ticket: TicketDraft)->TicketId {
+        let tick_id_get = TicketId(self.next_id);
+        self.next_id += 1;
+
+        let ticket_new = Ticket{
+            id:tick_id_get,
+            title:ticket.title,
+            description:ticket.description,
+            status:Status::ToDo,
+        };
+        self.tickets.push(ticket_new);
+        tick_id_get
+    }
+    pub fn get(&self,id:TicketId) -> Option<&Ticket> {
+        self.tickets.iter().find(|&t| t.id == id)
     }
 }
 
