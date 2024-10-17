@@ -1,3 +1,5 @@
+use std::io;
+use std::ptr::read;
 use tokio::net::TcpListener;
 
 // TODO: write an echo server that accepts incoming TCP connections and
@@ -11,9 +13,21 @@ use tokio::net::TcpListener;
 // - `tokio::net::TcpStream::split` to obtain a reader and a writer from the socket
 // - `tokio::io::copy` to copy data from the reader to the writer
 pub async fn echo(listener: TcpListener) -> Result<(), anyhow::Error> {
-    todo!()
-}
+    loop {
+        // 等待接受新连接
+        let (socket, _) = listener.accept().await?;
 
+        // 分割为 reader 和 writer
+        let (mut reader, mut writer) = tokio::io::split(socket);
+
+        // 异步复制数据，实现 Echo 功能
+        tokio::spawn(async move {
+            if tokio::io::copy(&mut reader, &mut writer).await.is_err() {
+                eprintln!("Error while echoing");
+            }
+        });
+    }
+}
 #[cfg(test)]
 mod tests {
     use super::*;
